@@ -6,7 +6,8 @@ export default Ember.Route.extend({
     controller.setProperties({
       username: null,
       password: null,
-      message: null
+      message: null,
+      transition: null
     });
   },
 
@@ -21,11 +22,17 @@ export default Ember.Route.extend({
 
       API.login(username, password).then(
         function(user) {
+          var transition = controller.get('transition');
+
           route.session.set('user', user);
-          route.transitionTo('index');
+
+          if (transition) {
+            transition.retry();
+          } else {
+            route.transitionTo('index');
+          }
         },
         function(error) {
-          console.log('error');
           controller.set('message', error.message);
         }
       );
