@@ -1,1 +1,5 @@
 <h3>Home Page</h3>
+
+{{#if session.user}}
+  <h4>You are logged in as {{session.user.name}}</h4>
+{{/if}}

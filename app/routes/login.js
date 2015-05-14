@@ -9,7 +9,7 @@ export default Ember.Route.extend({
       message: null
     });
   },
-  
+
   actions: {
     submit: function() {
       var route = this, controller=this.get('controller');
@@ -21,7 +21,7 @@ export default Ember.Route.extend({
 
       API.login(username, password).then(
         function(user) {
-          console.log('success');
+          route.session.set('user', user);
           route.transitionTo('index');
         },
         function(error) {

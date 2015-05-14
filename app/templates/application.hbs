@@ -2,12 +2,16 @@
 <p>
   {{link-to 'Home' 'index'}}
   <span>|</span>
-  {{link-to 'Public Page' 'public'}}
-  <span>|</span>
-  {{link-to 'Protected Page' 'protected'}}
-  <span>|</span>
-  Admin-only Page
-  <span>|</span>
-  {{link-to 'Login' 'login'}}
+  {{#if session.user}}
+    {{link-to 'Public Page' 'public'}}
+    <span>|</span>
+    {{link-to 'Protected Page' 'protected'}}
+    <span>|</span>
+    Admin-only Page
+    <span>|</span>
+    <a href="" {{action 'logout'}}>Logout</a>
+  {{else}}
+    {{link-to 'Login' 'login'}}
+  {{/if}}
 </p>
 {{outlet}}

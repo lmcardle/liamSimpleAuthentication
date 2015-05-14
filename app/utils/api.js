@@ -37,7 +37,7 @@ export default {
 
     var settings = { type: 'DELETE', headers: { 'Authorization': 'Token token=' + this.token } };
 
-    var deferred = Ember.$.ajax('/session', settings).then(
+    var deferred = Ember.$.ajax('/api/session', settings).then(
       function() {
         self.token = null;
       }
