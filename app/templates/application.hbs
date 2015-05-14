@@ -1,3 +1,11 @@
 <h2 id="title">Welcome to Ember.js</h2>
-
+<p>
+  {{link-to 'Home' 'index'}}
+  <span>|</span>
+  {{link-to 'Public Page' 'public'}}
+  <span>|</span>
+  Protected Page
+  <span>|</span>
+  Admin-only Page
+</p>
 {{outlet}}
