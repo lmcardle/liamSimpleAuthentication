@@ -26,6 +26,10 @@ export default Ember.Route.extend({
         // Allow the error to bubble and be handled elsewhere
         return true;
       }
+    },
+
+    expireSession: function() {
+      API.token = 'expired';
     }
   }
 });

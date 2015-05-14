@@ -10,6 +10,8 @@
     {{link-to 'Admin-only Page' 'secret'}}
     <span>|</span>
     <a href="" {{action 'logout'}}>Logout</a>
+    <span>|</span>
+    <a href="" {{action 'expireSession'}}>Force Session Expiration</a>
   {{else}}
     {{link-to 'Login' 'login'}}
   {{/if}}
