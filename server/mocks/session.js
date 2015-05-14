@@ -23,7 +23,7 @@ module.exports = function(app) {
       body.user.role = 'user';
       body.user.name = 'User';
     } else {
-      statusCode = 201;
+      statusCode = 401;
       body = 'Incorrect username/password';
     }
     res.status(statusCode).send(body);
