@@ -11,7 +11,15 @@ export default {
       password: password
     };
 
-    var deferred = Ember.$.post('/session', payload).then(
+    var config = {
+      url: '/api/session',
+      type: 'POST',
+      contentType: "application/json; charset=utf-8",
+      dataType: 'json',
+      data: JSON.stringify(payload)
+    };
+
+    var deferred = Ember.$.ajax(config).then(
       function(data) {
         self.token = data.token;
         return data.user;
